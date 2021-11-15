@@ -1,19 +1,19 @@
 ---
-title: "STRINGR"
-subtitle: "Un package de TIDYVERSE"  
+title: "Presentation Ninja"
+subtitle: "&#x2694;&#xFE0F; xaringan +<br/>&#x1F60E; xaringanthemer"  
 author: 
-  - "par Stéphanie Lapierre"
-date: '23 novembre 2021'
+  - "Yihui Xie"
+  - "Garrick Aden-Buie"
+date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
-    css: xaringan-themer-2.css
+    css: xaringan-themer.css
     nature:
       slideNumberFormat: "%current%"
       highlightStyle: github
       highlightLines: true
       ratio: 16:9
       countIncrementalSlides: true
-
 ---
 
 ```{r setup, include=FALSE}
@@ -32,34 +32,29 @@ knitr::opts_chunk$set(
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 library(xaringanthemer)
 style_duo_accent(
-  primary_color = "#6212AF",
-  secondary_color = "#BCF308",
+  primary_color = "#1381B0",
+  secondary_color = "#FF961C",
   inverse_header_color = "#FFFFFF"
 )
 ```
 
-## Chaîne de caractère
+## Typography
 
-Selon GeeksforGeeks : 
+Text can be **bold**, _italic_, ~~strikethrough~~, or `inline code`.
 
-> Les chaînes de caractères (_string_) sont essentiellement un ensemble de caractères. Un ou plusieurs caractères inclus dans une paire de guillemets simples ou doubles correspondants peuvent être considérés comme une chaîne de caractères dans R. Les chaînes représentent un contenu textuel et peuvent contenir des nombres, des espaces et des caractères spéciaux. [(Tranduction libre)](https://www.geeksforgeeks.org/r-strings/)
+[Link to another slide](#colors).
 
+### Lorem Ipsum
 
-```{r eval=FALSE}
+Dolor imperdiet nostra sapien scelerisque praesent curae metus facilisis dignissim tortor. 
+Lacinia neque mollis nascetur neque urna velit bibendum. 
+Himenaeos suspendisse leo varius mus risus sagittis aliquet venenatis duis nec.
 
-string <- "Voici une chaîne de charactère"
+- Dolor cubilia nostra nunc sodales
 
-string2 <- 'Si on inclut une "citation", on utilise les guillemets simples.'
-```
+- Consectetur aliquet mauris blandit
 
-
----
-layout: false
-
-##
-
-<center><img src="https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png" height="600px" /></center>
-
+- Ipsum dis nec porttitor urna sed
 
 ---
 name: colors
@@ -335,7 +330,8 @@ layout: false
 
 ## Two images
 
-
+.pull-left[
+![](https://octodex.github.com/images/motherhubbertocat.png)
 ]
 
 .pull-right[
@@ -360,7 +356,7 @@ layout: false
 ---
 class: center, middle
 
-# Merci!
+# Thanks!
 
 Slides created via the R packages:
 
