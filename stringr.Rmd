@@ -36,6 +36,11 @@ style_duo_accent(
   secondary_color = "#BCF308",
   inverse_header_color = "#FFFFFF"
 )
+library(tidyverse)
+
+# install package
+install.packages("titanic")
+df <- titanic_train
 ```
 
 ## Chaîne de caractère
