@@ -31,32 +31,116 @@ knitr::opts_chunk$set(
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 library(xaringanthemer)
-style_duo_accent(
-  primary_color = "#6212AF",
-  secondary_color = "#BCF308",
-  inverse_header_color = "#FFFFFF"
-)
+  style_duo_accent(
+    primary_color = "#6212AF",
+    secondary_color = "#BCF308",
+    inverse_header_color = "#FFFFFF"
+  )
+
 library(tidyverse)
 
 # install package
-install.packages("titanic")
+# install.packages("titanic")
+library(titanic)
 df <- titanic_train
 ```
 
+class: center, middle
+
+
+<center><img src="https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png" height="350px" /></center>
+
+
+### « Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. » 
+[stringr, GitHub](https://stringr.tidyverse.org/)
+
+---
 ## Chaîne de caractère
 
-Selon GeeksforGeeks : 
+Selon GeeksforGeeks 
 
-> Les chaînes de caractères (_string_) sont essentiellement un ensemble de caractères. Un ou plusieurs caractères inclus dans une paire de guillemets simples ou doubles correspondants peuvent être considérés comme une chaîne de caractères dans R. Les chaînes représentent un contenu textuel et peuvent contenir des nombres, des espaces et des caractères spéciaux. [(Tranduction libre)](https://www.geeksforgeeks.org/r-strings/)
+> Les chaînes de caractères (_string_) sont essentiellement un ensemble de caractères. Un ou plusieurs caractères inclus dans une paire de guillemets simples ou doubles correspondants peuvent être considérés comme une chaîne de caractères dans R. Les chaînes représentent un contenu textuel et peuvent contenir des nombres, des espaces et des caractères spéciaux.  [(Tranduction libre)](https://www.geeksforgeeks.org/r-strings/)
 
+<br /> 
 
 ```{r eval=FALSE}
 
 string <- "Voici une chaîne de charactère"
+```
+
+<br /> 
+
+```{r eval=FALSE}
 
 string2 <- 'Si on inclut une "citation", on utilise les guillemets simples.'
 ```
 
+---
+## stringr
+
+#### Un *package* de Tidyverse
+Le *package stringr* fournit un ensemble de fonctions pour faciliter le travail avec les chaînes de caractères. Bâti à partir de *stringi*, *stringr* offre les fonctions les plus importantes et les plus utilisées pour manipuler les chaînes de caractères.
+
+_ <center> Astuce : Si aucune fonction de stringr ne répond à vos besoins, les chances <br /> 
+sont que vous trouviez ce que vous cherchez dans stringi</center> _
+
+
+---
+## Des fonctions qui commence par `str_`
+
+.pull-left[
+
+*   `str_c`
+*   `str_conv`
+*   `str_count`         
+*   `str_detect`      
+*   `str_dup`      
+*   `str_ends`
+*   `str_extract` et `str_extract_all` 
+*   `str_flatten`     
+*   `str_glue`        
+*   `str_glue_data`   
+*   `str_interp`      
+*   `str_length`     
+*   `str_locate` et `str_locate_all`  
+*   `str_match` et `str_match_all`   
+*   `str_order`       
+*   `str_pad`         
+*   `str_remove` et `str_remove_all`  
+*   `str_replace` et `str_replace_all`
+]
+
+.pull-right[
+
+*   `str_replace_na`  
+*   `str_sort`        
+*   `str_split`       
+*   `str_split_fixed`
+*   `str_squish`      
+*   `str_starts`      
+*   `str_sub`         
+*   `str_sub<-`       
+*   `str_subset`      
+*   `str_to_lower` et * `str_to_upper`  
+*   `str_to_sentence`
+*   `str_to_title`    
+*   `str_trim`        
+*   `str_trunc`       
+*   `str_view` et `str_view_all`    
+*   `str_which`      
+*   `str_wrap`     
+]
+
+
+
+Fonction non présenté
+*   "word"      
+*   "invert_match"
+
+Data set 
+"fruit"
+"sentences"
+"words" 
 
 ---
 layout: false

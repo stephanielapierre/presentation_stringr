@@ -32,20 +32,102 @@ class: center, middle, inverse, title-slide
 
 
 
+class: center, middle
+
+
+&lt;center&gt;&lt;img src="https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png" height="350px" /&gt;&lt;/center&gt;
+
+
+### « Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. » 
+[stringr, GitHub](https://stringr.tidyverse.org/)
+
+---
 ## Chaîne de caractère
 
-Selon GeeksforGeeks : 
+Selon GeeksforGeeks 
 
-&gt; Les chaînes de caractères (_string_) sont essentiellement un ensemble de caractères. Un ou plusieurs caractères inclus dans une paire de guillemets simples ou doubles correspondants peuvent être considérés comme une chaîne de caractères dans R. Les chaînes représentent un contenu textuel et peuvent contenir des nombres, des espaces et des caractères spéciaux. [tranduction libre](https://github.com/yihui/xaringan)
+&gt; Les chaînes de caractères (_string_) sont essentiellement un ensemble de caractères. Un ou plusieurs caractères inclus dans une paire de guillemets simples ou doubles correspondants peuvent être considérés comme une chaîne de caractères dans R. Les chaînes représentent un contenu textuel et peuvent contenir des nombres, des espaces et des caractères spéciaux.  [(Tranduction libre)](https://www.geeksforgeeks.org/r-strings/)
 
+&lt;br /&gt; 
 
 
 ```r
 string &lt;- "Voici une chaîne de charactère"
+```
 
+&lt;br /&gt; 
+
+
+```r
 string2 &lt;- 'Si on inclut une "citation", on utilise les guillemets simples.'
 ```
 
+---
+## stringr
+
+#### Un *package* de Tidyverse
+Le *package stringr* fournit un ensemble de fonctions pour faciliter le travail avec les chaînes de caractères. Bâti à partir de *stringi*, *stringr* offre les fonctions les plus importantes et les plus utilisées pour manipuler les chaînes de caractères.
+
+_ &lt;center&gt; Astuce : Si aucune fonction de stringr ne répond à vos besoins, les chances &lt;br /&gt; 
+sont que vous trouviez ce que vous cherchez dans stringi&lt;/center&gt; _
+
+
+---
+## Des fonctions qui commence par `str_`
+
+.pull-left[
+
+*   `str_c`
+*   `str_conv`
+*   `str_count`         
+*   `str_detect`      
+*   `str_dup`      
+*   `str_ends`
+*   `str_extract` et `str_extract_all` 
+*   `str_flatten`     
+*   `str_glue`        
+*   `str_glue_data`   
+*   `str_interp`      
+*   `str_length`     
+*   `str_locate` et `str_locate_all`  
+*   `str_match` et `str_match_all`   
+*   `str_order`       
+*   `str_pad`         
+*   `str_remove` et `str_remove_all`  
+*   `str_replace` et `str_replace_all`
+]
+
+.pull-right[
+
+*   `str_replace_na`  
+*   `str_sort`        
+*   `str_split`       
+*   `str_split_fixed`
+*   `str_squish`      
+*   `str_starts`      
+*   `str_sub`         
+*   `str_sub&lt;-`       
+*   `str_subset`      
+*   `str_to_lower` et * `str_to_upper`  
+*   `str_to_sentence`
+*   `str_to_title`    
+*   `str_trim`        
+*   `str_trunc`       
+*   `str_view` et `str_view_all`    
+*   `str_which`      
+*   `str_wrap`     
+]
+
+
+
+Fonction non présenté
+*   "word"      
+*   "invert_match"
+
+Data set 
+"fruit"
+"sentences"
+"words" 
 
 ---
 layout: false
@@ -372,8 +454,8 @@ exclude: false
 DT::datatable(head(mtcars), fillContainer = FALSE, options = list(pageLength = 4))
 ```
 
-<div id="htmlwidget-856f4983dba6b8a26eb8" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-856f4983dba6b8a26eb8">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant"],[21,21,22.8,21.4,18.7,18.1],[6,6,4,6,8,6],[160,160,108,258,360,225],[110,110,93,110,175,105],[3.9,3.9,3.85,3.08,3.15,2.76],[2.62,2.875,2.32,3.215,3.44,3.46],[16.46,17.02,18.61,19.44,17.02,20.22],[0,0,1,1,0,1],[1,1,1,0,0,0],[4,4,4,3,3,3],[4,4,1,1,2,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-df2a7e07bab34ad85e75" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-df2a7e07bab34ad85e75">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant"],[21,21,22.8,21.4,18.7,18.1],[6,6,4,6,8,6],[160,160,108,258,360,225],[110,110,93,110,175,105],[3.9,3.9,3.85,3.08,3.15,2.76],[2.62,2.875,2.32,3.215,3.44,3.46],[16.46,17.02,18.61,19.44,17.02,20.22],[0,0,1,1,0,1],[1,1,1,0,0,0],[4,4,4,3,3,3],[4,4,1,1,2,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 layout: true
