@@ -150,6 +150,12 @@ Data set
 
 
 ---
+class: inverse center middle
+
+# Exploration et nettoyage des données
+
+
+---
 ### Exploration des chaînes de caractères
 
 La fonction `str_length` pour évaluer la longueur d'une chaine de caractères
@@ -191,7 +197,6 @@ La fonction `str_to_lower` pour mettre tous les caractères en minuscule
 ```{r eval=TRUE}
 x <- c("lEs dOnNéEs pArLeNt d'ElLeS-MêMeS")
 
-# Pour mettre tous les caractères en minuscule
 str_to_lower (x)
 
 ```
@@ -224,7 +229,6 @@ La fonction `str_to_title` pour mettre des majuscules dans un titre
 ```{r eval=TRUE}
 x <- c("lEs dOnNéEs pArLeNt d'ElLeS-MêMeS")
 
-# Pour mettre des majuscules dans un titre
 str_to_title(x)
 ```
 
@@ -233,8 +237,6 @@ str_to_title(x)
 
 ####Astuce
 Chaque langague comporte ces propres particularités. Afin de permettre à R d'exécuter correctement les manipulations demandées, l'argument `locale` permet d'indiquer la langue des caractères. Par défaut, les fonctions de *stringr* utilise "en" pour anglais
-
-<br /> 
 
 Par exemple dans l'alphabet hawaiian, le *e* vient avec le *b*.
 ```{r eval=TRUE}
@@ -247,11 +249,8 @@ str_sort(x, locale = "haw") # En hawaiian
 
 ---
 ### Pour extraire ou remplacer des caractères
-La fonction `str_sub` pour extraire une partie des caractères. Cette fonction est composée de trois arguments :
+La fonction `str_sub` pour extraire une partie des caractères. Cette fonction est composée de trois arguments, soit le vecteur, la position de départ et la position de fin
 
-* le vecteur
-* la position de départ 
-* la position de fin
 ```{r eval=TRUE}
 x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", NA)
 
@@ -263,16 +262,166 @@ str_sub(x, 2, -2)
 
 ```
 
-La fonction `str_sub` peut aussi être utiliser pour modifier un caractère
+---
+### Pour extraire ou remplacer des caractères
+
+La fonction `str_sub` peut aussi être utilisée pour modifier un caractère
 ```{r eval=TRUE}
 x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", NA)
 
 # Remplacer le troisième caractère par un point d'interrogation
 str_sub(x, 3, 3) <- "?"
-
 x
-
 ```
+
+---
+### Pour combiner des caractères
+
+La fonction `str_c` permette de combiner des caractères
+
+```{r eval=TRUE}
+str_c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune")
+```
+
+<br /> 
+
+En ajoutant l'argument `sep`, on indique par quoi séparer les caractères
+```{r eval=TRUE}
+str_c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", sep = " et ")
+```
+
+
+---
+class: inverse center middle
+
+# À la recherche de *pattern*
+
+---
+### Les expressions régulières
+
+Les **expressions régulières** (ou *regexps*) permettent de décrire un *pattern* qui apparait dans une chaîne de caractère.
+
+La *cheat sheet* du *package stringr* présente un bon résumé des différents concepts liés aux expressions régulières.
+
+![](regex.png)
+
+---
+### Détecter des *patterns*
+
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+
+<br /> 
+
+La fonction `str_detect` permet de savoir si des chaînes de caractères répondent au critère
+```{r eval=TRUE}
+x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
+
+str_detect(x, "[aeiou]")
+```
+
+---
+### Détecter des *patterns*
+
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+
+<br /> 
+
+La fonction `str_count` permet de compter combien de caractères répondent au critère
+```{r eval=TRUE}
+x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
+
+str_count(x, "[aeiou]")
+```
+
+---
+### Détecter des *patterns*
+
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+
+<br /> 
+
+La fonction `str_subset` permet d'extraire les chaînes de caractères répondent au critère
+```{r eval=TRUE}
+x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
+
+str_subset(x, "[aeiou]")
+```
+
+
+---
+### Détecter des *patterns*
+
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+
+<br /> 
+
+La fonction `str_locate` permet d'obtenir la position premier caractère qui répond au critère
+```{r eval=TRUE}
+x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
+
+str_locate(x, "[aeiou]")
+```
+
+
+
+---
+### Détecter des *patterns*
+
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+
+<br /> 
+
+La fonction `str_extract` permet d'extraire le premier caractère qui répond au critère
+```{r eval=TRUE}
+x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
+
+str_extract(x, "[aeiou]")
+```
+
+---
+### Détecter des *patterns*
+
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+
+<br /> 
+
+La fonction `str_match` permet d'extraire des parties de caractères qui correspondent au critère
+```{r eval=TRUE}
+x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
+
+# Extraire les caractères de chaque côté des voyelles
+str_match(x, "(.)[aeiou](.)")
+```
+
+---
+### Détecter des *patterns*
+
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+
+<br /> 
+
+La fonction `str_replace` permet de remplacer les caractères qui répondent au critère
+```{r eval=TRUE}
+x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
+
+str_replace(x, "[aeiou]", "?")
+```
+
+---
+### Détecter des *patterns*
+
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+
+<br /> 
+
+La fonction `str_split` permet de séparer les chaînes de caractère
+```{r eval=TRUE}
+x <- c("mercure, vénus, terre, mars, jupiter, saturne, uranus, neptune")
+
+str_split(x, ", ")
+```
+
+
 
 ---
 ### Base R contre stringr
