@@ -92,7 +92,7 @@ Si aucune fonction de *stringr* ne répond à vos besoins, les chances sont que 
 
 
 ---
-## Des fonctions qui commence par `str_`
+## Des fonctions qui commencent par `str_`
 
 .pull-left[
 
@@ -139,6 +139,8 @@ Si aucune fonction de *stringr* ne répond à vos besoins, les chances sont que 
 
 
 
+
+
 Fonction non présenté
 *   "word"      
 *   "invert_match"
@@ -148,6 +150,18 @@ Data set
 "sentences"
 "words" 
 
+
+---
+### Base R contre stringr
+
+Bien que R offre un ensemble de fonctions pour travailler avec les chaînes de caractères, on reproche aux fonctions de base R de manquer de cohérence et d'être plus difficile à apprendre. 
+
+
+Pourquoi utiliser *stringr*
+
+* La structure des fonctions et des arguments est cohérente et consistante. Le premier argument d'une fonction est toujours le vecteur sur lequel on travail. C'est d'ailleurs ce qui fait que *stringr* est particulièrement adapté pour l'utilisation des pipes (%>%)
+* Simplifie les opérations
+* Les résultats des fonctions de *stringr* peuvent facilement être réutiliser. Le package permet notamment de s'assurer que les données manquantes demeurent des données manquantes.
 
 ---
 class: inverse center middle
@@ -326,6 +340,21 @@ Les fonctions qui intégre les expressions régulières ont toutes la même stru
 
 <br /> 
 
+La fonction `str_subset` permet d'extraire les chaînes de caractères répondent au critère
+```{r eval=TRUE}
+x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
+
+str_subset(x, "[aeiou]")
+```
+
+
+---
+### Détecter des *patterns*
+
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+
+<br /> 
+
 La fonction `str_count` permet de compter combien de caractères répondent au critère
 ```{r eval=TRUE}
 x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
@@ -424,10 +453,114 @@ str_split(x, ", ")
 
 
 ---
-### Base R contre stringr
+class: inverse center middle
 
-R . On reproche toutefois à 
-Bien que R offre un ensemble de fonctions pour travailler avec les chaînes de caractères, on reproche aux fonctions de base R de manquer de cohérence et d'être plus difficile à apprendre. 
+# *stringr* en application
+
+
+---
+background-image: url(https://unsplash.com/photos/hMwl23e44_Q/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MXx8dGl0YW5pY3x8MHx8fHwxNjM3NTI0Nzkx&force=true&w=1920)
+background-position: 700px 150px
+background-size: 350px
+
+### Analyse textuelle des données du Titanic
+
+
+
+.pull-left[
+
+<br /> 
+<br /> 
+<br /> 
+
+**Using Stringr and Regex to Extract Features from Textual and Alphanumeric Data in R**
+
+Analyse de Matti Fuchs publié le 1<sup>er</sup> février 2020 sur Towards Data Science
+
+L'analyse complète est disponible [ici](https://towardsdatascience.com/using-stringr-and-regex-to-extract-features-from-textual-alphanumeric-and-punctuation-data-in-r-2565256c0a77)
+]
+
+---
+### Base de données du Titanic
+
+```{r eval=TRUE}
+library(titanic)
+df <- titanic_train
+knitr::kable(head(df, 3), format = "html")
+```
+
+---
+### Prédicteur de la survie
+
+Questions à explorer
+- Est-ce que la noblesse a eu plus de chances de survivre que le commun des mortels?
+- Est-ce que les jeunes femmes célibataires ont eu plus de change de survivre?
+
+```{r eval=TRUE}
+head(df$Name, 10)
+```
+
+Pour répondre à ces questions, on peut extraire le titre de civilité de la variable *Name*
+
+
+---
+### Extraction du titre de civilité 
+
+Pour éviter les problèmes ou les mauvaises surprises, on met en minuscule tous les noms
+
+```{r eval=TRUE}
+df$lcName = str_to_lower(df$Name)
+```
+
+---
+### Extraction du titre de civilité 
+
+Il faut maintenant utiliser une expression régulière afin de pouvoir extraire le titre de civilité. 
+On a vu que les titres de civilité sont précédé d'un espace et se termine par un point.
+
+<br /> 
+
+L'expression régulière est composée de trois parties
+
+1. `(?<=\\s)` indique que la chaîne de caractères qu'on recherche est précédé (?<=) d'un espace (\\s).
+1. `[[:alpha:]]+` indique que la chaîne de caractères qu'on recherche est composé d'un ou plusieur (+) lettre ([[:alpha:]]).
+1. `(?=\\.)` indique que la chaîne de caractères qu'on recherche précède (?=) un point (\\.).
+
+<br /> 
+
+                        **(?<=\\s)[[:alpha:]]+(?=\\.)**
+
+
+---
+### Extraction du titre de civilité 
+
+.pull-left[
+```{r eval=TRUE}
+df$title = str_extract( df$lcName, "(?<=\\s)[[:alpha:]]+(?=\\.)" )
+
+df$title <- as.factor(df$title)
+
+df_title <- data.frame(summary(df$title))
+
+```
+]
+
+.pull-right[
+```{r eval=TRUE}
+df_title
+```
+]
+
+---
+### Répartition des titres de civilité des passagers du Titanic
+
+```{r eval=TRUE}
+ggplot(data.frame(table(df$title)),aes(x=reorder(Var1, -Freq),y=Freq))+
+  geom_col(fill='darkgreen')+
+  labs(x="Titre de civilité",y="Nombre")
+```
+
+
 
 ---
 name: colors

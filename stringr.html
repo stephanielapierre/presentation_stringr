@@ -79,7 +79,7 @@ Si aucune fonction de *stringr* ne répond à vos besoins, les chances sont que 
 
 
 ---
-## Des fonctions qui commence par `str_`
+## Des fonctions qui commencent par `str_`
 
 .pull-left[
 
@@ -378,30 +378,7 @@ str_detect(x, "[aeiou]")
 ---
 ### Détecter des *patterns*
 
-Les fonctions qui permettent de travailler avec les expressions régulières ont toutes la même structure.
-
-                str_...(x, pattern)
-
-&lt;br /&gt; 
-
-La fonction `str_count` permet de compter combien de caractères répondent au critère
-
-```r
-x &lt;- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
-
-str_count(x, "[aeiou]")
-```
-
-```
-## [1] 3 1 2 1 3 3 3 3 0
-```
-
----
-### Détecter des *patterns*
-
-Les fonctions qui permettent de travailler avec les expressions régulières ont toutes la même structure.
-
-                str_...(x, pattern)
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
@@ -422,7 +399,47 @@ str_subset(x, "[aeiou]")
 ---
 ### Détecter des *patterns*
 
-Les fonctions qui permettent de travailler avec les expressions régulières ont toutes la même structure : str_...(x, pattern)
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+
+&lt;br /&gt; 
+
+La fonction `str_count` permet de compter combien de caractères répondent au critère
+
+```r
+x &lt;- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
+
+str_count(x, "[aeiou]")
+```
+
+```
+## [1] 3 1 2 1 3 3 3 3 0
+```
+
+---
+### Détecter des *patterns*
+
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+
+&lt;br /&gt; 
+
+La fonction `str_subset` permet d'extraire les chaînes de caractères répondent au critère
+
+```r
+x &lt;- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
+
+str_subset(x, "[aeiou]")
+```
+
+```
+## [1] "mercure" "vénus"   "terre"   "mars"    "jupiter" "saturne" "uranus" 
+## [8] "neptune"
+```
+
+
+---
+### Détecter des *patterns*
+
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
@@ -452,9 +469,7 @@ str_locate(x, "[aeiou]")
 ---
 ### Détecter des *patterns*
 
-Les fonctions qui permettent de travailler avec les expressions régulières ont toutes la même structure.
-
-                str_...(x, pattern)
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
@@ -473,9 +488,7 @@ str_extract(x, "[aeiou]")
 ---
 ### Détecter des *patterns*
 
-Les fonctions qui permettent de travailler avec les expressions régulières ont toutes la même structure.
-
-                str_...(x, pattern)
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
@@ -504,9 +517,7 @@ str_match(x, "(.)[aeiou](.)")
 ---
 ### Détecter des *patterns*
 
-Les fonctions qui permettent de travailler avec les expressions régulières ont toutes la même structure.
-
-                str_...(x, pattern)
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
@@ -526,9 +537,7 @@ str_replace(x, "[aeiou]", "?")
 ---
 ### Détecter des *patterns*
 
-Les fonctions qui permettent de travailler avec les expressions régulières ont toutes la même structure.
-
-                str_...(x, pattern)
+Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
@@ -547,6 +556,218 @@ str_split(x, ", ")
 ```
 
 
+
+---
+class: inverse center middle
+
+# *stringr* en application
+
+
+---
+background-image: url(https://unsplash.com/photos/hMwl23e44_Q/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MXx8dGl0YW5pY3x8MHx8fHwxNjM3NTI0Nzkx&amp;force=true&amp;w=1920)
+background-position: 700px 150px
+background-size: 350px
+
+### Analyse textuelle des données du Titanic
+
+
+
+.pull-left[
+
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+
+**Using Stringr and Regex to Extract Features from Textual and Alphanumeric Data in R**
+
+Analyse de Matti Fuchs publié le 1&lt;sup&gt;er&lt;/sup&gt; février 2020 sur Towards Data Science
+
+L'analyse complète est disponible [ici](https://towardsdatascience.com/using-stringr-and-regex-to-extract-features-from-textual-alphanumeric-and-punctuation-data-in-r-2565256c0a77)
+]
+
+---
+### Base de données du Titanic
+
+
+```r
+library(titanic)
+df &lt;- titanic_train
+knitr::kable(head(df, 3), format = "html")
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; PassengerId &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Survived &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pclass &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Name &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Sex &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Age &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; SibSp &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Parch &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Ticket &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Fare &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Cabin &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Embarked &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Braund, Mr. Owen Harris &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 22 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; A/5 21171 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.2500 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; S &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cumings, Mrs. John Bradley (Florence Briggs Thayer) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 38 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; PC 17599 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 71.2833 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; C85 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; C &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Heikkinen, Miss. Laina &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 26 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; STON/O2. 3101282 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.9250 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; S &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+### Prédicteur de la survie
+
+Questions à explorer
+- Est-ce que la noblesse a eu plus de chances de survivre que le commun des mortels?
+- Est-ce que les jeunes femmes célibataires ont eu plus de change de survivre?
+
+
+```r
+head(df$Name, 10)
+```
+
+```
+##  [1] "Braund, Mr. Owen Harris"                            
+##  [2] "Cumings, Mrs. John Bradley (Florence Briggs Thayer)"
+##  [3] "Heikkinen, Miss. Laina"                             
+##  [4] "Futrelle, Mrs. Jacques Heath (Lily May Peel)"       
+##  [5] "Allen, Mr. William Henry"                           
+##  [6] "Moran, Mr. James"                                   
+##  [7] "McCarthy, Mr. Timothy J"                            
+##  [8] "Palsson, Master. Gosta Leonard"                     
+##  [9] "Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)"  
+## [10] "Nasser, Mrs. Nicholas (Adele Achem)"
+```
+
+Pour répondre à ces questions, on peut extraire le titre de civilité de la variable *Name*
+
+
+---
+### Extraction du titre de civilité 
+
+Pour éviter les problèmes ou les mauvaises surprises, on met en minuscule tous les noms
+
+
+```r
+df$lcName = str_to_lower(df$Name)
+```
+
+---
+### Extraction du titre de civilité 
+
+Il faut maintenant utiliser une expression régulière afin de pouvoir extraire le titre de civilité. 
+On a vu que les titres de civilité sont précédé d'un espace et se termine par un point.
+
+&lt;br /&gt; 
+
+L'expression régulière est composée de trois parties
+
+1. `(?&lt;=\\s)` indique que la chaîne de caractères qu'on recherche est précédé (?&lt;=) d'un espace (\\s).
+1. `[[:alpha:]]+` indique que la chaîne de caractères qu'on recherche est composé d'un ou plusieur (+) lettre ([[:alpha:]]).
+1. `(?=\\.)` indique que la chaîne de caractères qu'on recherche précède (?=) un point (\\.).
+
+&lt;br /&gt; 
+
+                        **(?&lt;=\\s)[[:alpha:]]+(?=\\.)**
+
+
+---
+### Extraction du titre de civilité 
+
+.pull-left[
+
+```r
+df$title = str_extract( df$lcName, "(?&lt;=\\s)[[:alpha:]]+(?=\\.)" )
+
+df$title &lt;- as.factor(df$title)
+
+df_title &lt;- data.frame(summary(df$title))
+```
+]
+
+.pull-right[
+
+```r
+df_title
+```
+
+```
+##          summary.df.title.
+## capt                     1
+## col                      2
+## countess                 1
+## don                      1
+## dr                       7
+## jonkheer                 1
+## lady                     1
+## major                    2
+## master                  40
+## miss                   182
+## mlle                     2
+## mme                      1
+## mr                     517
+## mrs                    125
+## ms                       1
+## rev                      6
+## sir                      1
+```
+]
+
+---
+### Répartition des titres de civilité des passagers du Titanic
+
+
+```r
+ggplot(data.frame(table(df$title)),aes(x=reorder(Var1, -Freq),y=Freq))+
+  geom_col(fill='darkgreen')+
+  labs(x="Titre de civilité",y="Nombre")
+```
+
+&lt;img src="stringr_files/figure-html/unnamed-chunk-27-1.png" width="100%" /&gt;
 
 ---
 ### Base R contre stringr
@@ -864,8 +1085,8 @@ exclude: false
 DT::datatable(head(mtcars), fillContainer = FALSE, options = list(pageLength = 4))
 ```
 
-<div id="htmlwidget-9e78ee8a50fbf5db4adf" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9e78ee8a50fbf5db4adf">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant"],[21,21,22.8,21.4,18.7,18.1],[6,6,4,6,8,6],[160,160,108,258,360,225],[110,110,93,110,175,105],[3.9,3.9,3.85,3.08,3.15,2.76],[2.62,2.875,2.32,3.215,3.44,3.46],[16.46,17.02,18.61,19.44,17.02,20.22],[0,0,1,1,0,1],[1,1,1,0,0,0],[4,4,4,3,3,3],[4,4,1,1,2,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4c93ad2ca94fdfe1ddce" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4c93ad2ca94fdfe1ddce">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant"],[21,21,22.8,21.4,18.7,18.1],[6,6,4,6,8,6],[160,160,108,258,360,225],[110,110,93,110,175,105],[3.9,3.9,3.85,3.08,3.15,2.76],[2.62,2.875,2.32,3.215,3.44,3.46],[16.46,17.02,18.61,19.44,17.02,20.22],[0,0,1,1,0,1],[1,1,1,0,0,0],[4,4,4,3,3,3],[4,4,1,1,2,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 layout: true
