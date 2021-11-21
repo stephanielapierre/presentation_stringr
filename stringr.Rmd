@@ -52,7 +52,7 @@ class: center, middle
 
 
 ### « Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. » 
-[stringr, GitHub](https://stringr.tidyverse.org/)
+[stringr, tidyverse](https://stringr.tidyverse.org/)
 
 ---
 ## Chaîne de caractère
@@ -76,13 +76,19 @@ string2 <- 'Si on inclut une "citation", on utilise les guillemets simples.'
 ```
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1050px 50px
+background-size: 80px
+
 ## stringr
 
 #### Un *package* de Tidyverse
 Le *package stringr* fournit un ensemble de fonctions pour faciliter le travail avec les chaînes de caractères. Bâti à partir de *stringi*, *stringr* offre les fonctions les plus importantes et les plus utilisées pour manipuler les chaînes de caractères.
 
-_ <center> Astuce : Si aucune fonction de stringr ne répond à vos besoins, les chances <br /> 
-sont que vous trouviez ce que vous cherchez dans stringi</center> _
+<br /> 
+
+#### Astuce
+Si aucune fonction de *stringr* ne répond à vos besoins, les chances sont que vous trouviez ce que vous cherchez dans *stringi*.
 
 
 ---
@@ -121,7 +127,7 @@ sont que vous trouviez ce que vous cherchez dans stringi</center> _
 *   `str_sub`         
 *   `str_sub<-`       
 *   `str_subset`      
-*   `str_to_lower` et * `str_to_upper`  
+*   `str_to_lower` et `str_to_upper`  
 *   `str_to_sentence`
 *   `str_to_title`    
 *   `str_trim`        
@@ -142,13 +148,137 @@ Data set
 "sentences"
 "words" 
 
+
 ---
-layout: false
+### Exploration des chaînes de caractères
 
-##
+La fonction `str_length` pour évaluer la longueur d'une chaine de caractères
+```{r eval=TRUE}
+x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", NA)
 
-<center><img src="https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png" height="600px" /></center>
+str_length(x)
 
+# Base R
+nchar(x)
+
+```
+
+---
+### Pour gérer les majuscules et les minuscules
+
+*stringr* dispose de quatre fonctions pour nous aider à convertir les majuscules et les minuscules.
+
+<br /> 
+
+La fonction `str_to_upper` pour mettre tous les caractères en majuscule
+
+```{r eval=TRUE}
+x <- c("lEs dOnNéEs pArLeNt d'ElLeS-MêMeS")
+
+str_to_upper (x)
+
+```
+
+---
+### Pour gérer les majuscules et les minuscules
+
+*stringr* dispose de quatre fonctions pour nous aider à convertir les majuscules et les minuscules.
+
+<br /> 
+
+La fonction `str_to_lower` pour mettre tous les caractères en minuscule
+
+```{r eval=TRUE}
+x <- c("lEs dOnNéEs pArLeNt d'ElLeS-MêMeS")
+
+# Pour mettre tous les caractères en minuscule
+str_to_lower (x)
+
+```
+
+---
+### Pour gérer les majuscules et les minuscules
+
+*stringr* dispose de quatre fonctions pour nous aider à convertir les majuscules et les minuscules.
+
+<br /> 
+
+La fonction `str_to_sentence` pour mettre une majuscule au début de la phrase
+
+```{r eval=TRUE}
+x <- c("lEs dOnNéEs pArLeNt d'ElLeS-MêMeS")
+
+str_to_sentence (x)
+
+```
+
+---
+### Pour gérer les majuscules et les minuscules
+
+*stringr* dispose de quatre fonctions pour nous aider à convertir les majuscules et les minuscules.
+
+<br /> 
+
+La fonction `str_to_title` pour mettre des majuscules dans un titre
+
+```{r eval=TRUE}
+x <- c("lEs dOnNéEs pArLeNt d'ElLeS-MêMeS")
+
+# Pour mettre des majuscules dans un titre
+str_to_title(x)
+```
+
+---
+### Pour gérer les majuscules et les minuscules
+
+####Astuce
+Chaque langague comporte ces propres particularités. Afin de permettre à R d'exécuter correctement les manipulations demandées, l'argument `locale` permet d'indiquer la langue des caractères. Par défaut, les fonctions de *stringr* utilise "en" pour anglais
+
+<br /> 
+
+Par exemple dans l'alphabet hawaiian, le *e* vient avec le *b*.
+```{r eval=TRUE}
+x <- c("apple", "eggplant", "banana")
+
+str_sort(x, locale = "en")  # En anglais
+
+str_sort(x, locale = "haw") # En hawaiian
+```
+
+---
+### Pour extraire ou remplacer des caractères
+La fonction `str_sub` pour extraire une partie des caractères. Cette fonction est composée de trois arguments :
+
+* le vecteur
+* la position de départ 
+* la position de fin
+```{r eval=TRUE}
+x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", NA)
+
+# Le 3e caractère
+str_sub(x, 3, 3)
+
+# Du 2e caractère à l'avant dernière caractère
+str_sub(x, 2, -2)
+
+```
+
+La fonction `str_sub` peut aussi être utiliser pour modifier un caractère
+```{r eval=TRUE}
+x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", NA)
+
+# Remplacer le troisième caractère par un point d'interrogation
+str_sub(x, 3, 3) <- "?"
+
+x
+
+```
+
+---
+### Base R contre stringr
+
+R . On reproche toutefois à 
+Bien que R offre un ensemble de fonctions pour travailler avec les chaînes de caractères, on reproche aux fonctions de base R de manquer de cohérence et d'être plus difficile à apprendre. 
 
 ---
 name: colors
@@ -246,12 +376,6 @@ layout: true
 
 #### R Code
 
-```{r eval=FALSE}
-ggplot(gapminder) +
-  aes(x = gdpPercap, y = lifeExp, size = pop, color = country) +
-  geom_point() +
-  facet_wrap(~year)
-```
 
 #### JavaScript
 
