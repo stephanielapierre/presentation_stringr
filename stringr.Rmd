@@ -304,6 +304,60 @@ En ajoutant l'argument `sep`, on indique par quoi séparer les caractères
 str_c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", sep = " et ")
 ```
 
+---
+class: inverse center middle
+
+# Les espaces
+
+
+---
+### Pour gérer les espaces
+
+*stringr* dispose de trois fonctions ajouter, enlever ou modifier les espaces.
+
+La fonction `str_pad` permet d'obtenir une chaîne de caractères d'une longueur déterminer en ajoutant des espaces supplémentaires à gauche, à droite ou des deux côtés
+
+```{r eval=TRUE}
+x <- c("données")
+
+str_pad(x, 20, "left")      # Par défaut, les espaces sont ajoutés à gauche
+str_pad(x, 20, "right")
+str_pad(x, 20, "both")
+```
+
+
+---
+### Pour gérer les espaces
+
+*stringr* dispose de trois fonctions ajouter, enlever ou modifier les espaces.
+
+La fonction `str_trim` permet d'éliminer d'une chaîne de caractères tous les espaces superflus à gauche, à droite ou des deux côtés
+
+```{r eval=TRUE}
+x <- c("      a", "b      ", "   c   ")
+
+str_trim(x, "left")      
+str_trim(x, "right")
+str_trim(x, "both")      # Par défaut, les espaces sont enlevés des deux côtés
+```
+
+
+---
+### Pour gérer les espaces
+
+*stringr* dispose de trois fonctions ajouter, enlever ou modifier les espaces.
+
+La fonction `str_wrap` permet d'enlever d'ajuster le format d'une chaîne de caractères pour obtenir un paragraphe
+
+```{r eval=TRUE}
+x <- c("Illud tamen te esse admonitum volo, primum ut qualis es talem te esse omnes existiment ut, quantum a rerum turpitudine abes, tantum te a verborum libertate seiungas; deinde ut ea in alterum ne dicas, quae cum tibi falso responsa sint, erubescas.")
+
+cat(str_wrap(x, width = 80))
+
+cat(str_wrap(x, width = 50, indent = 4))
+```
+
+
 
 ---
 class: inverse center middle
@@ -528,7 +582,7 @@ L'expression régulière est composée de trois parties
 
 <br /> 
 
-                        **(?<=\\s)[[:alpha:]]+(?=\\.)**
+** (?<=\\s)[[:alpha:]]+(?=\\.) **
 
 
 ---

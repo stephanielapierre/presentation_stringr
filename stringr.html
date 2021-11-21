@@ -126,6 +126,8 @@ Si aucune fonction de *stringr* ne répond à vos besoins, les chances sont que 
 
 
 
+
+
 Fonction non présenté
 *   "word"      
 *   "invert_match"
@@ -135,6 +137,18 @@ Data set
 "sentences"
 "words" 
 
+
+---
+### Base R contre stringr
+
+Bien que R offre un ensemble de fonctions pour travailler avec les chaînes de caractères, on reproche aux fonctions de base R de manquer de cohérence et d'être plus difficile à apprendre. 
+
+
+Pourquoi utiliser *stringr*
+
+* La structure des fonctions et des arguments est cohérente et consistante. Le premier argument d'une fonction est toujours le vecteur sur lequel on travail. C'est d'ailleurs ce qui fait que *stringr* est particulièrement adapté pour l'utilisation des pipes (%&gt;%)
+* Simplifie les opérations
+* Les résultats des fonctions de *stringr* peuvent facilement être réutiliser. Le package permet notamment de s'assurer que les données manquantes demeurent des données manquantes.
 
 ---
 class: inverse center middle
@@ -340,6 +354,117 @@ str_c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "nep
 ```
 ## [1] "mercure et vénus et terre et mars et jupiter et saturne et uranus et neptune"
 ```
+
+---
+class: inverse center middle
+
+# Les espaces
+
+
+---
+### Pour gérer les espaces
+
+*stringr* dispose de trois fonctions ajouter, enlever ou modifier les espaces.
+
+La fonction `str_pad` permet d'obtenir une chaîne de caractères d'une longueur déterminer en ajoutant des espaces supplémentaires à gauche, à droite ou des deux côtés
+
+
+```r
+x &lt;- c("données")
+
+str_pad(x, 20, "left")      # Par défaut, les espaces sont ajoutés à gauche
+```
+
+```
+## [1] "             données"
+```
+
+```r
+str_pad(x, 20, "right")
+```
+
+```
+## [1] "données             "
+```
+
+```r
+str_pad(x, 20, "both")
+```
+
+```
+## [1] "      données       "
+```
+
+
+---
+### Pour gérer les espaces
+
+*stringr* dispose de trois fonctions ajouter, enlever ou modifier les espaces.
+
+La fonction `str_trim` permet d'éliminer d'une chaîne de caractères tous les espaces superflus à gauche, à droite ou des deux côtés
+
+
+```r
+x &lt;- c("      a", "b      ", "   c   ")
+
+str_trim(x, "left")      
+```
+
+```
+## [1] "a"       "b      " "c   "
+```
+
+```r
+str_trim(x, "right")
+```
+
+```
+## [1] "      a" "b"       "   c"
+```
+
+```r
+str_trim(x, "both")      # Par défaut, les espaces sont enlevés des deux côtés
+```
+
+```
+## [1] "a" "b" "c"
+```
+
+
+---
+### Pour gérer les espaces
+
+*stringr* dispose de trois fonctions ajouter, enlever ou modifier les espaces.
+
+La fonction `str_wrap` permet d'enlever d'ajuster le format d'une chaîne de caractères pour obtenir un paragraphe
+
+
+```r
+x &lt;- c("Illud tamen te esse admonitum volo, primum ut qualis es talem te esse omnes existiment ut, quantum a rerum turpitudine abes, tantum te a verborum libertate seiungas; deinde ut ea in alterum ne dicas, quae cum tibi falso responsa sint, erubescas.")
+
+cat(str_wrap(x, width = 80))
+```
+
+```
+## Illud tamen te esse admonitum volo, primum ut qualis es talem te esse omnes
+## existiment ut, quantum a rerum turpitudine abes, tantum te a verborum libertate
+## seiungas; deinde ut ea in alterum ne dicas, quae cum tibi falso responsa sint,
+## erubescas.
+```
+
+```r
+cat(str_wrap(x, width = 50, indent = 4))
+```
+
+```
+##     Illud tamen te esse admonitum volo, primum
+## ut qualis es talem te esse omnes existiment ut,
+## quantum a rerum turpitudine abes, tantum te a
+## verborum libertate seiungas; deinde ut ea in
+## alterum ne dicas, quae cum tibi falso responsa
+## sint, erubescas.
+```
+
 
 
 ---
@@ -767,13 +892,9 @@ ggplot(data.frame(table(df$title)),aes(x=reorder(Var1, -Freq),y=Freq))+
   labs(x="Titre de civilité",y="Nombre")
 ```
 
-&lt;img src="stringr_files/figure-html/unnamed-chunk-27-1.png" width="100%" /&gt;
+&lt;img src="stringr_files/figure-html/unnamed-chunk-30-1.png" width="100%" /&gt;
 
----
-### Base R contre stringr
 
-R . On reproche toutefois à 
-Bien que R offre un ensemble de fonctions pour travailler avec les chaînes de caractères, on reproche aux fonctions de base R de manquer de cohérence et d'être plus difficile à apprendre. 
 
 ---
 name: colors
@@ -1085,8 +1206,8 @@ exclude: false
 DT::datatable(head(mtcars), fillContainer = FALSE, options = list(pageLength = 4))
 ```
 
-<div id="htmlwidget-4c93ad2ca94fdfe1ddce" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4c93ad2ca94fdfe1ddce">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant"],[21,21,22.8,21.4,18.7,18.1],[6,6,4,6,8,6],[160,160,108,258,360,225],[110,110,93,110,175,105],[3.9,3.9,3.85,3.08,3.15,2.76],[2.62,2.875,2.32,3.215,3.44,3.46],[16.46,17.02,18.61,19.44,17.02,20.22],[0,0,1,1,0,1],[1,1,1,0,0,0],[4,4,4,3,3,3],[4,4,1,1,2,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d9cae7410324bea6b763" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d9cae7410324bea6b763">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["Mazda RX4","Mazda RX4 Wag","Datsun 710","Hornet 4 Drive","Hornet Sportabout","Valiant"],[21,21,22.8,21.4,18.7,18.1],[6,6,4,6,8,6],[160,160,108,258,360,225],[110,110,93,110,175,105],[3.9,3.9,3.85,3.08,3.15,2.76],[2.62,2.875,2.32,3.215,3.44,3.46],[16.46,17.02,18.61,19.44,17.02,20.22],[0,0,1,1,0,1],[1,1,1,0,0,0],[4,4,4,3,3,3],[4,4,1,1,2,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>mpg<\/th>\n      <th>cyl<\/th>\n      <th>disp<\/th>\n      <th>hp<\/th>\n      <th>drat<\/th>\n      <th>wt<\/th>\n      <th>qsec<\/th>\n      <th>vs<\/th>\n      <th>am<\/th>\n      <th>gear<\/th>\n      <th>carb<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 layout: true
