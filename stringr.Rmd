@@ -55,6 +55,10 @@ class: center, middle
 [stringr, tidyverse](https://stringr.tidyverse.org/)
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ## Chaîne de caractère
 
 Selon GeeksforGeeks 
@@ -77,7 +81,7 @@ string2 <- 'Si on inclut une "citation", on utilise les guillemets simples.'
 
 ---
 background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
-background-position: 1050px 50px
+background-position: 1040px 40px
 background-size: 80px
 
 ## stringr
@@ -92,6 +96,10 @@ Si aucune fonction de *stringr* ne répond à vos besoins, les chances sont que 
 
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ## Des fonctions qui commencent par `str_`
 
 .pull-left[
@@ -152,15 +160,23 @@ Data set
 
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Base R contre stringr
 
-Bien que R offre un ensemble de fonctions pour travailler avec les chaînes de caractères, on reproche aux fonctions de base R de manquer de cohérence et d'être plus difficile à apprendre. 
+<br /> 
 
+Bien que R offre un ensemble de fonctions pour travailler avec les chaînes de caractères, on reproche 
+aux fonctions de base R de manquer de cohérence et d'être plus difficile à apprendre. 
+
+<br /> 
 
 Pourquoi utiliser *stringr*
 
 * La structure des fonctions et des arguments est cohérente et consistante. Le premier argument d'une fonction est toujours le vecteur sur lequel on travail. C'est d'ailleurs ce qui fait que *stringr* est particulièrement adapté pour l'utilisation des pipes (%>%)
-* Simplifie les opérations
+* Simplifie les opérations.
 * Les résultats des fonctions de *stringr* peuvent facilement être réutiliser. Le package permet notamment de s'assurer que les données manquantes demeurent des données manquantes.
 
 ---
@@ -170,6 +186,10 @@ class: inverse center middle
 
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Exploration des chaînes de caractères
 
 La fonction `str_length` pour évaluer la longueur d'une chaine de caractères
@@ -184,6 +204,10 @@ nchar(x)
 ```
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Pour gérer les majuscules et les minuscules
 
 *stringr* dispose de quatre fonctions pour nous aider à convertir les majuscules et les minuscules.
@@ -200,6 +224,10 @@ str_to_upper (x)
 ```
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Pour gérer les majuscules et les minuscules
 
 *stringr* dispose de quatre fonctions pour nous aider à convertir les majuscules et les minuscules.
@@ -216,6 +244,10 @@ str_to_lower (x)
 ```
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Pour gérer les majuscules et les minuscules
 
 *stringr* dispose de quatre fonctions pour nous aider à convertir les majuscules et les minuscules.
@@ -232,6 +264,10 @@ str_to_sentence (x)
 ```
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Pour gérer les majuscules et les minuscules
 
 *stringr* dispose de quatre fonctions pour nous aider à convertir les majuscules et les minuscules.
@@ -247,6 +283,10 @@ str_to_title(x)
 ```
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Pour gérer les majuscules et les minuscules
 
 ####Astuce
@@ -262,7 +302,14 @@ str_sort(x, locale = "haw") # En hawaiian
 ```
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Pour extraire ou remplacer des caractères
+
+<br /> 
+
 La fonction `str_sub` pour extraire une partie des caractères. Cette fonction est composée de trois arguments, soit le vecteur, la position de départ et la position de fin
 
 ```{r eval=TRUE}
@@ -277,6 +324,10 @@ str_sub(x, 2, -2)
 ```
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Pour extraire ou remplacer des caractères
 
 La fonction `str_sub` peut aussi être utilisée pour modifier un caractère
@@ -289,6 +340,10 @@ x
 ```
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Pour combiner des caractères
 
 La fonction `str_c` permette de combiner des caractères
@@ -311,6 +366,10 @@ class: inverse center middle
 
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Pour gérer les espaces
 
 *stringr* dispose de trois fonctions ajouter, enlever ou modifier les espaces.
@@ -327,6 +386,10 @@ str_pad(x, 20, "both")
 
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Pour gérer les espaces
 
 *stringr* dispose de trois fonctions ajouter, enlever ou modifier les espaces.
@@ -343,6 +406,10 @@ str_trim(x, "both")      # Par défaut, les espaces sont enlevés des deux côt�
 
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Pour gérer les espaces
 
 *stringr* dispose de trois fonctions ajouter, enlever ou modifier les espaces.
@@ -364,7 +431,12 @@ class: inverse center middle
 
 # À la recherche de *pattern*
 
+
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Les expressions régulières
 
 Les **expressions régulières** (ou *regexps*) permettent de décrire un *pattern* qui apparait dans une chaîne de caractère.
@@ -374,7 +446,13 @@ La *cheat sheet* du *package stringr* présente un bon résumé des différents 
 ![](regex.png)
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Détecter des *patterns*
+
+<br /> 
 
 Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
@@ -388,7 +466,13 @@ str_detect(x, "[aeiou]")
 ```
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Détecter des *patterns*
+
+<br /> 
 
 Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
@@ -403,7 +487,13 @@ str_subset(x, "[aeiou]")
 
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Détecter des *patterns*
+
+<br /> 
 
 Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
@@ -417,7 +507,13 @@ str_count(x, "[aeiou]")
 ```
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Détecter des *patterns*
+
+<br /> 
 
 Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
@@ -432,7 +528,13 @@ str_subset(x, "[aeiou]")
 
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Détecter des *patterns*
+
+<br /> 
 
 Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
@@ -448,7 +550,13 @@ str_locate(x, "[aeiou]")
 
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Détecter des *patterns*
+
+<br /> 
 
 Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
@@ -462,7 +570,13 @@ str_extract(x, "[aeiou]")
 ```
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Détecter des *patterns*
+
+<br /> 
 
 Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
@@ -477,7 +591,13 @@ str_match(x, "(.)[aeiou](.)")
 ```
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Détecter des *patterns*
+
+<br /> 
 
 Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
@@ -491,7 +611,13 @@ str_replace(x, "[aeiou]", "?")
 ```
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Détecter des *patterns*
+
+<br /> 
 
 Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
@@ -513,15 +639,19 @@ class: inverse center middle
 
 
 ---
-background-image: url(https://unsplash.com/photos/hMwl23e44_Q/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MXx8dGl0YW5pY3x8MHx8fHwxNjM3NTI0Nzkx&force=true&w=1920)
-background-position: 700px 150px
-background-size: 350px
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
 
 ### Analyse textuelle des données du Titanic
 
-
-
 .pull-left[
+
+<br /> 
+<img src="images/titanic_by-noaa_unsplash.jpg" alt="" width="65%"/>
+]
+
+.pull-right[
 
 <br /> 
 <br /> 
@@ -534,7 +664,12 @@ Analyse de Matti Fuchs publié le 1<sup>er</sup> février 2020 sur Towards Data 
 L'analyse complète est disponible [ici](https://towardsdatascience.com/using-stringr-and-regex-to-extract-features-from-textual-alphanumeric-and-punctuation-data-in-r-2565256c0a77)
 ]
 
+
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Base de données du Titanic
 
 ```{r eval=TRUE}
@@ -544,6 +679,10 @@ knitr::kable(head(df, 3), format = "html")
 ```
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Prédicteur de la survie
 
 Questions à explorer
@@ -558,6 +697,10 @@ Pour répondre à ces questions, on peut extraire le titre de civilité de la va
 
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Extraction du titre de civilité 
 
 Pour éviter les problèmes ou les mauvaises surprises, on met en minuscule tous les noms
@@ -566,8 +709,15 @@ Pour éviter les problèmes ou les mauvaises surprises, on met en minuscule tous
 df$lcName = str_to_lower(df$Name)
 ```
 
+
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Extraction du titre de civilité 
+
+<br /> 
 
 Il faut maintenant utiliser une expression régulière afin de pouvoir extraire le titre de civilité. 
 On a vu que les titres de civilité sont précédé d'un espace et se termine par un point.
@@ -586,6 +736,10 @@ L'expression régulière est composée de trois parties
 
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Extraction du titre de civilité 
 
 .pull-left[
@@ -606,6 +760,10 @@ df_title
 ]
 
 ---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
 ### Répartition des titres de civilité des passagers du Titanic
 
 ```{r eval=TRUE}
@@ -614,297 +772,6 @@ ggplot(data.frame(table(df$title)),aes(x=reorder(Var1, -Freq),y=Freq))+
   labs(x="Titre de civilité",y="Nombre")
 ```
 
-
-
----
-name: colors
-
-## Colors
-
-.left-column[
-Text color
-
-[Link Color](#3)
-
-**Bold Color**
-
-_Italic Color_
-
-`Inline Code`
-]
-
-.right-column[
-Lorem ipsum dolor sit amet, [consectetur adipiscing elit (link)](#3), 
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Erat nam at lectus urna.
-Pellentesque elit ullamcorper **dignissim cras tincidunt (bold)** lobortis feugiat. 
-_Eros donec ac odio tempor_ orci dapibus ultrices. 
-Id porta nibh venenatis cras sed felis eget velit aliquet.
-Aliquam id diam maecenas ultricies mi.
-Enim sit amet 
-`code_color("inline")`
-venenatis urna cursus eget nunc scelerisque viverra.
-]
-
----
-
-# Big Topic or Inverse Slides `#`
-
-## Slide Headings `##`
-
-### Sub-slide Headings `###`
-
-#### Bold Call-Out `####`
-
-This is a normal paragraph text. Only use header levels 1-4.
-
-##### Possible, but not recommended `#####`
-
-###### Definitely don't use h6 `######`
-
----
-
-# Left-Column Headings
-
-.left-column[
-## First
-
-## Second
-
-## Third
-]
-
-.right-column[
-Dolor quis aptent mus a dictum ultricies egestas.
-
-Amet egestas neque tempor fermentum proin massa!
-
-Dolor elementum fermentum pharetra lectus arcu pulvinar.
-]
-
----
-class: inverse center middle
-
-# Topic Changing Interstitial
-
---
-
-```
-class: inverse center middle
-```
-
----
-layout: true
-
-## Blocks
-
----
-
-### Blockquote
-
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
-
----
-
-### Code Blocks
-
-#### R Code
-
-
-#### JavaScript
-
-```js
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
-
----
-
-### More R Code
-
-```{r eval=FALSE}
-dplyr::starwars %>% dplyr::slice_sample(n = 4)
-```
-
----
-
-```{r message=TRUE, eval=requireNamespace("cli", quietly = TRUE)}
-cli::cli_alert_success("It worked!")
-```
-
---
-
-```{r message=TRUE}
-message("Just a friendly message")
-```
-
---
-
-```{r warning=TRUE}
-warning("This could be bad...")
-```
-
---
-
-```{r error=TRUE}
-stop("I hope you're sitting down for this")
-```
-
-
----
-layout: true
-
-## Tables
-
----
-exclude: `r if (requireNamespace("tibble", quietly=TRUE)) "false" else "true"`
-
-```{r eval=requireNamespace("tibble", quietly=TRUE)}
-tibble::as_tibble(mtcars)
-```
-
----
-
-```{r}
-knitr::kable(head(mtcars), format = 'html')
-```
-
----
-exclude: `r if (requireNamespace("DT", quietly=TRUE)) "false" else "true"`
-
-```{r eval=requireNamespace("DT", quietly=TRUE)}
-DT::datatable(head(mtcars), fillContainer = FALSE, options = list(pageLength = 4))
-```
-
----
-layout: true
-
-## Lists
-
----
-
-.pull-left[
-#### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-]
-
-.pull-right[
-
-#### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-]
-
----
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
----
-
-### Nesting an ol in ul in an ol
-
-- level 1 item (ul)
-  1. level 2 item (ol)
-  1. level 2 item (ol)
-    - level 3 item (ul)
-    - level 3 item (ul)
-- level 1 item (ul)
-  1. level 2 item (ol)
-  1. level 2 item (ol)
-    - level 3 item (ul)
-    - level 3 item (ul)
-  1. level 4 item (ol)
-  1. level 4 item (ol)
-    - level 3 item (ul)
-    - level 3 item (ul)
-- level 1 item (ul)
-
----
-layout: true
-
-## Plots
-
----
-
-```{r plot-example, eval=requireNamespace("ggplot2", quietly=TRUE)}
-library(ggplot2)
-(g <- ggplot(mpg) + aes(hwy, cty, color = class) + geom_point())
-```
-
----
-
-```{r plot-example-themed, eval=requireNamespace("ggplot2", quietly=TRUE)}
-#g + xaringanthemer::theme_xaringan(text_font_size = 16, title_font_size = 18) +
- # ggtitle("A Plot About Cars")
-```
-
----
-layout: false
-
-## Square image
-
-<center><img src="https://octodex.github.com/images/labtocat.png" height="400px" /></center>
-
-.footnote[GitHub Octocat]
-
----
-
-### Wide image
-
-![](https://guides.github.com/activities/hello-world/branching.png)
-
-.footnote[Wide images scale to 100% slide width]
-
----
-
-## Two images
-
-
-]
-
-.pull-right[
-![](https://octodex.github.com/images/dinotocat.png)
-]
-
----
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
 
 ---
 class: center, middle
