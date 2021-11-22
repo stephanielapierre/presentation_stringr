@@ -777,10 +777,3 @@ ggplot(data.frame(table(df$title)),aes(x=reorder(Var1, -Freq),y=Freq))+
 class: center, middle
 
 # Merci!
-
-Slides created via the R packages:
-
-[**xaringan**](https://github.com/yihui/xaringan)<br>
-[gadenbuie/xaringanthemer](https://github.com/gadenbuie/xaringanthemer)
-
-The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
