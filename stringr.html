@@ -47,14 +47,14 @@ Selon GeeksforGeeks
 
 
 ```r
-string &lt;- "Voici une chaîne de charactère"
+string &lt;- "Voici une chaîne de caractère"
 ```
 
 &lt;br /&gt; 
 
 
 ```r
-string2 &lt;- 'Si on inclut une "citation", on utilise les guillemets simples.'
+string2 &lt;- 'Pour inclure une "citation", on utilise les guillemets simples.'
 ```
 
 ---
@@ -124,19 +124,6 @@ background-size: 80px
 ]
 
 
-
-
-
-Fonction non présenté
-*   "word"      
-*   "invert_match"
-
-Data set 
-"fruit"
-"sentences"
-"words" 
-
-
 ---
 background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
 background-position: 1040px 40px
@@ -153,9 +140,9 @@ aux fonctions de base R de manquer de cohérence et d'être plus difficile à ap
 
 Pourquoi utiliser *stringr*
 
-* La structure des fonctions et des arguments est cohérente et consistante. Le premier argument d'une fonction est toujours le vecteur sur lequel on travail. C'est d'ailleurs ce qui fait que *stringr* est particulièrement adapté pour l'utilisation des pipes (%&gt;%)
+* La structure des fonctions et des arguments est cohérente et consistante. Le premier argument d'une fonction est toujours le vecteur sur lequel on travaille. C'est d'ailleurs ce qui fait que *stringr* est particulièrement adapté pour l'utilisation des pipes (%&gt;%).
 * Simplifie les opérations.
-* Les résultats des fonctions de *stringr* peuvent facilement être réutiliser. Le package permet notamment de s'assurer que les données manquantes demeurent des données manquantes.
+* Les résultats des fonctions de *stringr* peuvent facilement être réutilisés. Le package permet notamment de s'assurer que les données manquantes demeurent des données manquantes.
 
 ---
 class: inverse center middle
@@ -295,9 +282,9 @@ background-size: 80px
 ### Pour gérer les majuscules et les minuscules
 
 ####Astuce
-Chaque langague comporte ces propres particularités. Afin de permettre à R d'exécuter correctement les manipulations demandées, l'argument `locale` permet d'indiquer la langue des caractères. Par défaut, les fonctions de *stringr* utilise "en" pour anglais
+Chaque langue comporte ces propres particularités. Afin de permettre à R d'exécuter correctement les manipulations demandées, l'argument `locale` permet d'indiquer la langue des caractères. Par défaut, les fonctions de *stringr* utilisent "en" pour anglais.
 
-Par exemple dans l'alphabet hawaiian, le *e* vient avec le *b*.
+Par exemple dans l'alphabet hawaïen, le *e* vient avec le *b*.
 
 ```r
 x &lt;- c("apple", "eggplant", "banana")
@@ -310,7 +297,7 @@ str_sort(x, locale = "en")  # En anglais
 ```
 
 ```r
-str_sort(x, locale = "haw") # En hawaiian
+str_sort(x, locale = "haw") # En hawaïen
 ```
 
 ```
@@ -326,7 +313,7 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-La fonction `str_sub` pour extraire une partie des caractères. Cette fonction est composée de trois arguments, soit le vecteur, la position de départ et la position de fin
+La fonction `str_sub` pour extraire une partie des caractères. Cette fonction est composée de trois arguments, soit le vecteur, la position de départ et la position de fin.
 
 
 ```r
@@ -341,7 +328,7 @@ str_sub(x, 3, 3)
 ```
 
 ```r
-# Du 2e caractère à l'avant dernière caractère
+# Du 2e caractère à l'avant-dernier caractère
 str_sub(x, 2, -2)
 ```
 
@@ -378,7 +365,7 @@ background-size: 80px
 
 ### Pour combiner des caractères
 
-La fonction `str_c` permette de combiner des caractères
+La fonction `str_c` permet de combiner des caractères
 
 
 ```r
@@ -455,7 +442,7 @@ background-size: 80px
 
 *stringr* dispose de trois fonctions ajouter, enlever ou modifier les espaces.
 
-La fonction `str_trim` permet d'éliminer d'une chaîne de caractères tous les espaces superflus à gauche, à droite ou des deux côtés
+La fonction `str_trim` permet d'éliminer d'une chaîne de caractères toutes les espaces superflues à gauche, à droite ou des deux côtés
 
 
 ```r
@@ -553,7 +540,7 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
@@ -578,7 +565,7 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
@@ -605,7 +592,7 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
@@ -630,7 +617,7 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
@@ -657,11 +644,11 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
-La fonction `str_locate` permet d'obtenir la position premier caractère qui répond au critère
+La fonction `str_locate` permet d'obtenir la position du premier caractère qui répond au critère
 
 ```r
 x &lt;- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
@@ -693,7 +680,7 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
@@ -718,7 +705,7 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
@@ -753,7 +740,7 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
@@ -779,7 +766,7 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégre les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
@@ -966,14 +953,14 @@ background-size: 80px
 &lt;br /&gt; 
 
 Il faut maintenant utiliser une expression régulière afin de pouvoir extraire le titre de civilité. 
-On a vu que les titres de civilité sont précédé d'un espace et se termine par un point.
+On a vu que les titres de civilité sont précédés d'un espace et se termine par un point.
 
 &lt;br /&gt; 
 
 L'expression régulière est composée de trois parties
 
-1. `(?&lt;=\\s)` indique que la chaîne de caractères qu'on recherche est précédé (?&lt;=) d'un espace (\\s).
-1. `[[:alpha:]]+` indique que la chaîne de caractères qu'on recherche est composé d'un ou plusieur (+) lettre ([[:alpha:]]).
+1. `(?&lt;=\\s)` indique que la chaîne de caractères qu'on recherche est précédée (?&lt;=) d'un espace (\\s).
+1. `[[:alpha:]]+` indique que la chaîne de caractères qu'on recherche est composés d'un ou plusieurs (+) lettres ([[:alpha:]]).
 1. `(?=\\.)` indique que la chaîne de caractères qu'on recherche précède (?=) un point (\\.).
 
 &lt;br /&gt; 
