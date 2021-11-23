@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>STRINGR</title>
+    <title>STRINGR, un package de TIDYVERSE</title>
     <meta charset="utf-8" />
     <meta name="author" content="par Stéphanie Lapierre" />
     <script src="stringr_files/header-attrs/header-attrs.js"></script>
@@ -11,8 +11,8 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# STRINGR
-## Un package de TIDYVERSE
+# STRINGR, un package de TIDYVERSE
+## Cours FAS1002
 ### par Stéphanie Lapierre
 ### 23 novembre 2021
 
@@ -65,7 +65,7 @@ background-size: 80px
 ## stringr
 
 #### Un *package* de Tidyverse
-Le *package stringr* fournit un ensemble de fonctions pour faciliter le travail avec les chaînes de caractères. Bâti à partir de *stringi*, *stringr* offre les fonctions les plus importantes et les plus utilisées pour manipuler les chaînes de caractères.
+Le *package stringr* fournit un ensemble de fonctions pour faciliter le travail avec les chaînes de caractères. Bâti à partir de *stringi*, il offre les fonctions les plus importantes et les plus utilisées pour manipuler les chaînes de caractères.
 
 &lt;br /&gt; 
 
@@ -129,16 +129,16 @@ background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea0
 background-position: 1040px 40px
 background-size: 80px
 
-### Base R contre stringr
+### Base R contre *stringr*
 
 &lt;br /&gt; 
 
 Bien que R offre un ensemble de fonctions pour travailler avec les chaînes de caractères, on reproche 
-aux fonctions de base R de manquer de cohérence et d'être plus difficile à apprendre. 
+à ces fonctions de manquer de cohérence et d'être plus difficiles à apprendre. 
 
 &lt;br /&gt; 
 
-Pourquoi utiliser *stringr*
+####Pourquoi utiliser *stringr*?
 
 * La structure des fonctions et des arguments est cohérente et consistante. Le premier argument d'une fonction est toujours le vecteur sur lequel on travaille. C'est d'ailleurs ce qui fait que *stringr* est particulièrement adapté pour l'utilisation des pipes (%&gt;%).
 * Simplifie les opérations.
@@ -157,7 +157,7 @@ background-size: 80px
 
 ### Exploration des chaînes de caractères
 
-La fonction `str_length` pour évaluer la longueur d'une chaine de caractères
+La fonction `str_length` permet d'évaluer la longueur d'une chaine de caractères.
 
 ```r
 x &lt;- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", NA)
@@ -169,14 +169,10 @@ str_length(x)
 ## [1]  7  5  5  4  7  7  6  7 NA
 ```
 
-```r
-# Base R
-nchar(x)
-```
+&lt;br /&gt; 
 
-```
-## [1]  7  5  5  4  7  7  6  7 NA
-```
+Note : Dans Base R, ce résultat aurait été obtenu avec la fonction `nchar()`.
+
 
 ---
 background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
@@ -189,13 +185,13 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-La fonction `str_to_upper` pour mettre tous les caractères en majuscule
+La fonction `str_to_upper` pour mettre tous les caractères en majuscule.
 
 
 ```r
 x &lt;- c("lEs dOnNéEs pArLeNt d'ElLeS-MêMeS")
 
-str_to_upper (x)
+str_to_upper(x)
 ```
 
 ```
@@ -213,13 +209,13 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-La fonction `str_to_lower` pour mettre tous les caractères en minuscule
+La fonction `str_to_lower` pour mettre tous les caractères en minuscule.
 
 
 ```r
 x &lt;- c("lEs dOnNéEs pArLeNt d'ElLeS-MêMeS")
 
-str_to_lower (x)
+str_to_lower(x)
 ```
 
 ```
@@ -237,17 +233,17 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-La fonction `str_to_sentence` pour mettre une majuscule au début de la phrase
+La fonction `str_to_sentence` pour mettre une majuscule au début de la phrase.
 
 
 ```r
-x &lt;- c("lEs dOnNéEs pArLeNt d'ElLeS-MêMeS")
+x &lt;- c("vous voyez! lEs dOnNéEs pArLeNt d'ElLeS-MêMeS")
 
 str_to_sentence (x)
 ```
 
 ```
-## [1] "Les données parlent d'elles-mêmes"
+## [1] "Vous voyez! Les données parlent d'elles-mêmes"
 ```
 
 ---
@@ -261,7 +257,7 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-La fonction `str_to_title` pour mettre des majuscules dans un titre
+La fonction `str_to_title` pour mettre des majuscules dans un titre.
 
 
 ```r
@@ -284,7 +280,7 @@ background-size: 80px
 ####Astuce
 Chaque langue comporte ces propres particularités. Afin de permettre à R d'exécuter correctement les manipulations demandées, l'argument `locale` permet d'indiquer la langue des caractères. Par défaut, les fonctions de *stringr* utilisent "en" pour anglais.
 
-Par exemple dans l'alphabet hawaïen, le *e* vient avec le *b*.
+Par exemple, dans l'alphabet hawaïen, le *e* vient avec le *b*.
 
 ```r
 x &lt;- c("apple", "eggplant", "banana")
@@ -313,7 +309,9 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-La fonction `str_sub` pour extraire une partie des caractères. Cette fonction est composée de trois arguments, soit le vecteur, la position de départ et la position de fin.
+La fonction `str_sub` pour extraire une partie des caractères. 
+
+Cette fonction est composée de trois arguments, soit le vecteur, la position de départ et la position de fin.
 
 
 ```r
@@ -343,7 +341,7 @@ background-size: 80px
 
 ### Pour extraire ou remplacer des caractères
 
-La fonction `str_sub` peut aussi être utilisée pour modifier un caractère
+La fonction `str_sub` peut aussi être utilisée pour modifier un caractère.
 
 ```r
 x &lt;- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", NA)
@@ -365,7 +363,7 @@ background-size: 80px
 
 ### Pour combiner des caractères
 
-La fonction `str_c` permet de combiner des caractères
+La fonction `str_c` permet de combiner des caractères.
 
 
 ```r
@@ -378,7 +376,7 @@ str_c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "nep
 
 &lt;br /&gt; 
 
-En ajoutant l'argument `sep`, on indique par quoi séparer les caractères
+En ajoutant l'argument `sep`, on indique par quoi séparer les caractères.
 
 ```r
 str_c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", sep = " et ")
@@ -403,7 +401,7 @@ background-size: 80px
 
 *stringr* dispose de trois fonctions ajouter, enlever ou modifier les espaces.
 
-La fonction `str_pad` permet d'obtenir une chaîne de caractères d'une longueur déterminer en ajoutant des espaces supplémentaires à gauche, à droite ou des deux côtés
+La fonction `str_pad` permet d'obtenir une chaîne de caractères d'une longueur déterminer en ajoutant des espaces supplémentaires à gauche, à droite ou des deux côtés.
 
 
 ```r
@@ -442,7 +440,7 @@ background-size: 80px
 
 *stringr* dispose de trois fonctions ajouter, enlever ou modifier les espaces.
 
-La fonction `str_trim` permet d'éliminer d'une chaîne de caractères toutes les espaces superflues à gauche, à droite ou des deux côtés
+La fonction `str_trim` permet d'éliminer d'une chaîne de caractères toutes les espaces superflues à gauche, à droite ou des deux côtés.
 
 
 ```r
@@ -481,7 +479,7 @@ background-size: 80px
 
 *stringr* dispose de trois fonctions ajouter, enlever ou modifier les espaces.
 
-La fonction `str_wrap` permet d'enlever d'ajuster le format d'une chaîne de caractères pour obtenir un paragraphe
+La fonction `str_wrap` permet d'ajuster le format d'une chaîne de caractères pour obtenir un paragraphe.
 
 
 ```r
@@ -527,7 +525,7 @@ background-size: 80px
 
 Les **expressions régulières** (ou *regexps*) permettent de décrire un *pattern* qui apparait dans une chaîne de caractère.
 
-La *cheat sheet* du *package stringr* présente un bon résumé des différents concepts liés aux expressions régulières.
+La *cheatsheet* du *package stringr* présente un bon résumé des différents concepts liés aux expressions régulières.
 
 ![](regex.png)
 
@@ -540,11 +538,11 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intègrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`.
 
 &lt;br /&gt; 
 
-La fonction `str_detect` permet de savoir si des chaînes de caractères répondent au critère
+La fonction `str_detect` permet de savoir si des chaînes de caractères répondent à l'expression régulière testée.
 
 ```r
 x &lt;- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
@@ -565,11 +563,11 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intègrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`.
 
 &lt;br /&gt; 
 
-La fonction `str_subset` permet d'extraire les chaînes de caractères répondent au critère
+La fonction `str_subset` permet d'extraire les chaînes de caractères répondent à l'expression régulière testée.
 
 ```r
 x &lt;- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
@@ -592,11 +590,11 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intègrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
 
 &lt;br /&gt; 
 
-La fonction `str_count` permet de compter combien de caractères répondent au critère
+La fonction `str_count` permet de compter combien de caractères répondent à l'expression régulière testée.
 
 ```r
 x &lt;- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
@@ -608,32 +606,6 @@ str_count(x, "[aeiou]")
 ## [1] 3 1 2 1 3 3 3 3 0
 ```
 
----
-background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
-background-position: 1040px 40px
-background-size: 80px
-
-### Détecter des *patterns*
-
-&lt;br /&gt; 
-
-Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
-
-&lt;br /&gt; 
-
-La fonction `str_subset` permet d'extraire les chaînes de caractères répondent au critère
-
-```r
-x &lt;- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
-
-str_subset(x, "[aeiou]")
-```
-
-```
-## [1] "mercure" "vénus"   "terre"   "mars"    "jupiter" "saturne" "uranus" 
-## [8] "neptune"
-```
-
 
 ---
 background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
@@ -644,11 +616,11 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intègrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`.
 
 &lt;br /&gt; 
 
-La fonction `str_locate` permet d'obtenir la position du premier caractère qui répond au critère
+La fonction `str_locate` permet d'obtenir la position du caractère qui répond répondent à l'expression régulière testée.
 
 ```r
 x &lt;- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
@@ -680,11 +652,11 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intègrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`.
 
 &lt;br /&gt; 
 
-La fonction `str_extract` permet d'extraire le premier caractère qui répond au critère
+La fonction `str_extract` permet d'extraire le caractère qui répond répondent à l'expression régulière testée.
 
 ```r
 x &lt;- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
@@ -705,11 +677,11 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intègrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`.
 
 &lt;br /&gt; 
 
-La fonction `str_match` permet d'extraire des parties de caractères qui correspondent au critère
+La fonction `str_match` permet d'extraire des parties de caractères qui correspondent à l'expression régulière testée.
 
 ```r
 x &lt;- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
@@ -740,11 +712,11 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intègrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`.
 
 &lt;br /&gt; 
 
-La fonction `str_replace` permet de remplacer les caractères qui répondent au critère
+La fonction `str_replace` permet de remplacer les caractères qui répondent à l'expression régulière testée.
 
 ```r
 x &lt;- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
@@ -766,11 +738,11 @@ background-size: 80px
 
 &lt;br /&gt; 
 
-Les fonctions qui intégrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`
+Les fonctions qui intègrent les expressions régulières ont toutes la même structure `str_...(x, pattern)`.
 
 &lt;br /&gt; 
 
-La fonction `str_split` permet de séparer les chaînes de caractère
+La fonction `str_split` permet de séparer les chaînes de caractère.
 
 ```r
 x &lt;- c("mercure, vénus, terre, mars, jupiter, saturne, uranus, neptune")
@@ -903,13 +875,9 @@ background-size: 80px
 
 ### Prédicteur de la survie
 
-Questions à explorer
-- Est-ce que la noblesse a eu plus de chances de survivre que le commun des mortels?
-- Est-ce que les jeunes femmes célibataires ont eu plus de change de survivre?
-
 
 ```r
-head(df$Name, 10)
+head(df$Name, 12)
 ```
 
 ```
@@ -922,10 +890,16 @@ head(df$Name, 10)
 ##  [7] "McCarthy, Mr. Timothy J"                            
 ##  [8] "Palsson, Master. Gosta Leonard"                     
 ##  [9] "Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)"  
-## [10] "Nasser, Mrs. Nicholas (Adele Achem)"
+## [10] "Nasser, Mrs. Nicholas (Adele Achem)"                
+## [11] "Sandstrom, Miss. Marguerite Rut"                    
+## [12] "Bonnell, Miss. Elizabeth"
 ```
 
-Pour répondre à ces questions, on peut extraire le titre de civilité de la variable *Name*
+&lt;br /&gt; 
+
+**Question** : Est-ce qu'une personne issue de la noblesse ou une jeune femme célibataire a eu plus de change de survivre?
+
+Pour répondre à cette question, on peut extraire le titre de civilité de la variable *Name*.
 
 
 ---
@@ -935,11 +909,31 @@ background-size: 80px
 
 ### Extraction du titre de civilité 
 
-Pour éviter les problèmes ou les mauvaises surprises, on met en minuscule tous les noms
+Pour éviter les problèmes ou les mauvaises surprises, on met en minuscule tous les noms.
 
 
 ```r
 df$lcName = str_to_lower(df$Name)
+
+head(df$lcName, 15)
+```
+
+```
+##  [1] "braund, mr. owen harris"                            
+##  [2] "cumings, mrs. john bradley (florence briggs thayer)"
+##  [3] "heikkinen, miss. laina"                             
+##  [4] "futrelle, mrs. jacques heath (lily may peel)"       
+##  [5] "allen, mr. william henry"                           
+##  [6] "moran, mr. james"                                   
+##  [7] "mccarthy, mr. timothy j"                            
+##  [8] "palsson, master. gosta leonard"                     
+##  [9] "johnson, mrs. oscar w (elisabeth vilhelmina berg)"  
+## [10] "nasser, mrs. nicholas (adele achem)"                
+## [11] "sandstrom, miss. marguerite rut"                    
+## [12] "bonnell, miss. elizabeth"                           
+## [13] "saundercock, mr. william henry"                     
+## [14] "andersson, mr. anders johan"                        
+## [15] "vestrom, miss. hulda amanda adolfina"
 ```
 
 
@@ -957,10 +951,10 @@ On a vu que les titres de civilité sont précédés d'un espace et se termine p
 
 &lt;br /&gt; 
 
-L'expression régulière est composée de trois parties
+L'expression régulière est composée de trois parties.
 
 1. `(?&lt;=\\s)` indique que la chaîne de caractères qu'on recherche est précédée (?&lt;=) d'un espace (\\s).
-1. `[[:alpha:]]+` indique que la chaîne de caractères qu'on recherche est composés d'un ou plusieurs (+) lettres ([[:alpha:]]).
+1. `[[:alpha:]]+` indique que la chaîne de caractères qu'on recherche est composés d'une ou plusieurs (+) lettres ([[:alpha:]]).
 1. `(?=\\.)` indique que la chaîne de caractères qu'on recherche précède (?=) un point (\\.).
 
 &lt;br /&gt; 
@@ -975,7 +969,6 @@ background-size: 80px
 
 ### Extraction du titre de civilité 
 
-.pull-left[
 
 ```r
 df$title = str_extract( df$lcName, "(?&lt;=\\s)[[:alpha:]]+(?=\\.)" )
@@ -984,9 +977,16 @@ df$title &lt;- as.factor(df$title)
 
 df_title &lt;- data.frame(summary(df$title))
 ```
-]
 
-.pull-right[
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
+### Extraction du titre de civilité 
+
+
 
 ```r
 df_title
@@ -1012,7 +1012,7 @@ df_title
 ## rev                      6
 ## sir                      1
 ```
-]
+
 
 ---
 background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
@@ -1028,13 +1028,33 @@ ggplot(data.frame(table(df$title)),aes(x=reorder(Var1, -Freq),y=Freq))+
   labs(x="Titre de civilité",y="Nombre")
 ```
 
-&lt;img src="stringr_files/figure-html/unnamed-chunk-30-1.png" width="100%" /&gt;
+&lt;img src="stringr_files/figure-html/unnamed-chunk-29-1.png" width="100%" /&gt;
 
 
 ---
 class: center, middle
 
 # Merci!
+
+
+---
+background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
+background-position: 1040px 40px
+background-size: 80px
+
+### Références utiles
+
+* [stringr](https://stringr.tidyverse.org/index.html) - *présentation du package*
+
+* [stringr, Reference](https://stringr.tidyverse.org/reference/index.html) - *ensemble des fonctions de stringr*
+
+* [stringr, Cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/strings.pdf)
+
+* [R for Data Science, Strings (chapter 14)](https://r4ds.had.co.nz/strings.html)
+
+* [Introduction to stringr](https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html)
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
