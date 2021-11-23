@@ -191,6 +191,12 @@ str_length(x)
 
 Note : Dans Base R, ce résultat aurait été obtenu avec la fonction `nchar()`.
 
+```{r eval=TRUE}
+x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", NA)
+
+nchar(x)
+```
+
 
 ---
 background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea08d07dbc11e742d68e4e3/df327/css/images/hex/stringr.png)
