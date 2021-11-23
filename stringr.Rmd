@@ -85,7 +85,7 @@ background-image: url(https://d33wubrfki0l68.cloudfront.net/45fd04ad9cdb2159fea0
 background-position: 1040px 40px
 background-size: 80px
 
-## stringr
+## *stringr*
 
 #### Un *package* de Tidyverse
 Le *package stringr* fournit un ensemble de fonctions pour faciliter le travail avec les chaînes de caractères. Bâti à partir de *stringi*, il offre les fonctions les plus importantes et les plus utilisées pour manipuler les chaînes de caractères.
