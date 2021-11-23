@@ -371,7 +371,7 @@ background-size: 80px
 
 *stringr* dispose de trois fonctions ajouter, enlever ou modifier les espaces.
 
-La fonction `str_pad` permet d'obtenir une chaîne de caractères d'une longueur déterminer en ajoutant des espaces supplémentaires à gauche, à droite ou des deux côtés.
+La fonction `str_pad` permet d'ajouter des espaces supplémentaires à gauche, à droite ou des deux côtés dans une chaîne de caractères.
 
 ```{r eval=TRUE}
 x <- c("données")
@@ -517,7 +517,7 @@ Les fonctions qui intègrent les expressions régulières ont toutes la même st
 
 <br /> 
 
-La fonction `str_locate` permet d'obtenir la position du caractère qui répond répondent à l'expression régulière testée.
+La fonction `str_locate` permet d'obtenir la position des caractères qui répondent à l'expression régulière testée.
 ```{r eval=TRUE}
 x <- c("mercure", "vénus", "terre", "mars", "jupiter", "saturne", "uranus", "neptune", "why")
 
